@@ -44,6 +44,10 @@ class Medio(enum.Enum):
     CASETE = 2
     CD = 3
 
+class Medios(enum.Enum):
+    DISCO = 1
+    CASETE = 2
+    CD = 3
 
 class Album(db.Model):
     id = db.Column(db.Integer, primary_key=True)
