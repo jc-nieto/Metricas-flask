@@ -135,6 +135,13 @@ class VistaSignIn(Resource):
         token_de_acceso = create_access_token(identity=nuevo_usuario.id)
         return {"mensaje": "usuario creado exitosamente", "token": token_de_acceso}
 
+    def post2(self):
+        nuevo_usuario = Usuario(nombre=request.json["nombre"], contrasena=request.json["contrasena"])
+        db.session.add(nuevo_usuario)
+        db.session.commit()
+        token_de_acceso = create_access_token(identity=nuevo_usuario.id)
+        return {"mensaje": "usuario creado exitosamente", "token": token_de_acceso}
+
     @jwt_required()
     def put(self, id_usuario):
         try:
